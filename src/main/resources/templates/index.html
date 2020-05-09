@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Productos</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body style="font-family: 'Montserrat', sans-serif;">
+    <div class="container mt-5">
+      <h1>Ingresar Producto</h1>
+
+      <form
+        class="mt-5"
+        method="POST"
+        th:action="@{/formProducto}"
+        ,
+        th:object="${producto}"
+      >
+        <div class="form-group">
+          <label for="nombre">Nombre del produto: </label>
+          <input
+            type="text"
+            class="form-control"
+            th:field="*{nombre}"
+            id="nombre"
+          />
+          <span th:errors="*{nombre}" style="color: #ff0000;"></span>
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripcion del producto: </label>
+          <input
+            type="text"
+            class="form-control"
+            th:field="*{descripcion}"
+            id="descripcion"
+          />
+          <span th:errors="*{descripcion}" style="color: #ff0000;"></span>
+        </div>
+        <div class="form-group">
+          <label for="precio">Precio del producto: </label>
+          <input
+            type="number"
+            class="form-control"
+            th:field="*{precio}"
+            id="precio"
+          />
+          <span th:errors="*{precio}" style="color: #ff0000;"></span>
+        </div>
+        <div class="form-group">
+          <label for="vencimiento">Fecha de Vencimiento: </label>
+          <input
+            type="text"
+            class="form-control"
+            th:field="*{vencimiento}"
+            id="vencimiento"
+          />
+          <span th:errors="*{vencimiento}" style="color: #ff0000;"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar producto</button>
+      </form>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
